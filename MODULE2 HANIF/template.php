@@ -4,16 +4,19 @@
 // ========== tangkap nilai tinggi_badan dan berat_badan yang ada pada form html
 // silakan taruh code kalian di bawah
 
-$input1 = isset($_POST['tinggi_badan']);
-$input2 = isset($_POST['berat_badan']);
+$input1 = ($_POST['tinggi_badan']);
+$input2 = ($_POST['berat_badan']);
 // **********************  1  ************************** 
 
 // **********************  2  ************************** 
 // ========== buatkan sebuah perkondisian di mana 
 // tinggi_badan atau $berat_badan tidak boleh kosong nilainya, kalau kosong buatkanlah pesan error
 // silakan taruh code kalian di bawah
-if ($input1 = NULL || $input2 = NULL) {
-    echo $error = "FORM TIDAK BOLEH KOSONG !!!";
+$error = "";
+if ($input1 == NULL) {
+    $error = "FORM TIDAK BOLEH KOSONG !!!";
+}elseif ($input2 == NULL) {
+    $error = "FORM TIDAK BOLEH KOSONG !!!";
 }
 // **********************  2  ************************** 
 
@@ -22,20 +25,22 @@ if ($input1 = NULL || $input2 = NULL) {
 // ========== buatkanlah perkondisian di mana Jika kesalahan Error-nya "empty", 
 // masukkan perhitungan BMI sesuai dengan rumus yang tertera pada jurnal
 // silakan taruh code kalian di bawah
-$height = $input1 / 100;
-if ($error = NULL) {
-    $jumlah = $input2 / ($height**2);
-    if ($jumlah <= 18.4){
-       $status = "Underweight";
-    }
-   if ($jumlah <= 24.9){
+if ($input1 != NULL || $input2 != NULL) {
+    $height = $input1 / 100;
+    $jumlah = $input2 / ($height ** 2);
+}
+if ($error == NULL) {
+if ($jumlah <= 18.4){
+    $status = "Underweight";
+}
+if ($jumlah <= 24.9){
     $status = "Normal";
 }
-    elseif ($jumlah <= 39.9){
-        $status = "Overweight";
+elseif ($jumlah <= 39.9){
+    $status = "Overweight";
 }
-    else {
-        $status = "Obese";
+else {
+    $status = "Obese";
     }
 }
 // **********************  3  ************************** 
