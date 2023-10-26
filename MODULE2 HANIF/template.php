@@ -29,7 +29,7 @@ if ($input1 != NULL || $input2 != NULL) {
     $height = $input1 / 100;
     $jumlah = $input2 / ($height ** 2);
 }
-if ($error == NULL) {
+
 if ($jumlah <= 18.4){
     $status = "Underweight";
 }
@@ -42,7 +42,7 @@ elseif ($jumlah <= 39.9){
 else {
     $status = "Obese";
     }
-}
+
 // **********************  3  ************************** 
 
 
